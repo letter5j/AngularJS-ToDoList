@@ -3,7 +3,7 @@
  */
 var app = angular.module("appToDoList", []);
 app.controller("appCtrl", function($scope) {
-    $scope.missionList = [];
+    $scope.missionList = ["100", "200"];
     $scope.addItem = function () {
         $scope.errortext = "";
         if (!$scope.addToDoItem) {
