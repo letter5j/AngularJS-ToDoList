@@ -6,9 +6,10 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-cookies.min.js"></script>
+
     <script src="app.js"></script>
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <style>
         html{
             display: flex;
@@ -24,13 +25,13 @@
             <h3 class="panel-title">To Do List</h3>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="x in missionList">{{x}}<span class="pull-right"><span ng-click="removeItem($index)" style="cursor:pointer;" class="glyphicon glyphicon-remove text-right"></span></span></li>
+            <li class="list-group-item" ng-repeat="x in taskList">{{x}}<span class="pull-right"><span ng-click="removeItem($index)" style="cursor:pointer;" class="glyphicon glyphicon-remove text-right"></span></span></li>
         </ul>
         <div class="panel-footer">
 
             <div class="row">
                 <div class="col-xs-10">
-                    <input class="form-control" id="ex1" type="text" placeholder="Add task here." ng-model="addToDoItem">
+                    <input class="form-control" type="text" placeholder="Add task here." ng-model="addToDoItem" ng-keyup="$event.keyCode == 13 && addItem()">
                 </div>
                 <div class="col-xs-2">
                     <span class="pull-right"><button type="button" class="btn btn-primary" ng-click="addItem()">Add</button></span>
@@ -38,15 +39,11 @@
             </div>
             <div class="row" ng-show="errortext">
                 <br>
-
                 <div class="alert alert-danger">
                     <strong>Error !</strong> {{errortext}}
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </body>
 </html>
